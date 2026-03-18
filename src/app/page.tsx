@@ -5,8 +5,9 @@ import { RecommendGuestButton } from "@/components/recommend-guest-modal";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white font-sans">
+     <div className="mx-auto max-w-6xl px-8">
       {/* Nav */}
-      <nav className="flex items-center justify-between px-16 py-6">
+      <nav className="flex items-center justify-between py-6">
         <span className="text-sm font-bold tracking-widest uppercase text-gray-900">
           Punts &amp; Pints
         </span>
@@ -22,7 +23,7 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="relative flex min-h-[calc(100vh-80px)] items-center px-16">
+      <section className="relative flex min-h-[calc(100vh-80px)] items-center">
         {/* Text */}
         <div className="relative z-10 max-w-md flex-shrink-0">
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-gray-900">
@@ -62,6 +63,7 @@ export default function Home() {
           />
         </div>
       </section>
+     </div>
     </div>
   );
 }

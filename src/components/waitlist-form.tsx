@@ -18,7 +18,7 @@ export function WaitlistForm() {
   if (state.success) {
     return (
       <p className="text-sm font-medium text-gray-900">
-        You&apos;re on the list! We&apos;ll be in touch.
+        You&apos;re in! We&apos;ll let you know when Season 1 drops.
       </p>
     );
   }

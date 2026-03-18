@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { RecommendGuestButton } from "@/components/recommend-guest-modal";
 import { Footer } from "@/components/footer";
+import { AnimatedPuntIllustration } from "@/components/animated-punt-illustration";
 
 export default function Home() {
   return (
@@ -50,26 +50,13 @@ export default function Home() {
           </div>
           {/* Mobile illustration */}
           <div className="mt-8 md:hidden">
-            <Image
-              src="/punt2.png"
-              alt="Illustration of people punting on the river"
-              width={1400}
-              height={800}
-              className="h-auto w-full object-contain"
-            />
+            <AnimatedPuntIllustration />
           </div>
         </div>
 
         {/* Desktop illustration */}
         <div className="absolute inset-y-0 right-0 hidden w-[65%] items-center md:flex">
-          <Image
-            src="/punt2.png"
-            alt="Illustration of people punting on the river"
-            width={1400}
-            height={800}
-            className="h-auto w-full object-contain"
-            priority
-          />
+          <AnimatedPuntIllustration />
         </div>
       </section>
      </div>

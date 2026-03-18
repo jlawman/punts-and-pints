@@ -2,7 +2,6 @@ import Image from "next/image";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { RecommendGuestButton } from "@/components/recommend-guest-modal";
 import { Footer } from "@/components/footer";
-import { DictionaryDefinition } from "@/components/dictionary-definition";
 
 export default function Home() {
   return (
@@ -37,6 +36,9 @@ export default function Home() {
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl">
             Taking A Punt
           </h1>
+          <p className="mt-3 italic text-sm text-gray-500">
+            Verb: To take a chance on something new.
+          </p>
           <p className="mt-3 text-sm font-medium uppercase tracking-widest text-gray-400">
             Season 1 Coming Soon
           </p>
@@ -71,7 +73,6 @@ export default function Home() {
         </div>
       </section>
      </div>
-     <DictionaryDefinition />
      <Footer />
     </div>
   );

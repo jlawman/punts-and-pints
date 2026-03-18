@@ -1,6 +1,6 @@
-# Punts & Pints
+# Taking a Punt
 
-Landing page for the **Punts & Pints** podcast by [Founders and Funders](https://foundersandfunders.com), based in Oxford. Collects waitlist signups and guest recommendations ahead of Season 1.
+Landing page for the **Taking a Punt** podcast by [Founders and Funders](https://foundersandfunders.com), based in Oxford. Collects waitlist signups and guest recommendations ahead of Season 1.
 
 ## Tech Stack
 

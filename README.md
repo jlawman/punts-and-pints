@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Punts & Pints
+
+Landing page for the **Punts & Pints** podcast by [Founders and Funders](https://foundersandfunders.com), based in Oxford. Collects waitlist signups and guest recommendations ahead of Season 1.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 / React 19
+- **Styling:** Tailwind CSS 4
+- **Database:** Neon PostgreSQL via Drizzle ORM
+- **Auth:** Clerk
+- **Linting/Formatting:** Biome
+- **Runtime:** bun
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [bun](https://bun.sh/) installed
+- A [Neon](https://neon.tech/) PostgreSQL database
+- A [Clerk](https://clerk.com/) project
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```
+DATABASE_URL=your_neon_connection_string
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install & Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun install
+bun run db:generate
+bun run db:migrate
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Description |
+|---|---|
+| `bun run dev` | Start dev server |
+| `bun run build` | Production build |
+| `bun run start` | Start production server |
+| `bun run lint` | Run Biome checks |
+| `bun run format` | Auto-format with Biome |
+| `bun run db:generate` | Generate Drizzle migrations |
+| `bun run db:migrate` | Run migrations |
+| `bun run db:push` | Push schema directly (skip migrations) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── layout.tsx        # Root layout with metadata
+│   ├── page.tsx          # Landing page
+│   ├── actions.ts        # Server actions (waitlist, guest recs)
+│   └── globals.css       # Global styles & animations
+├── components/
+│   ├── waitlist-form.tsx          # Email signup form
+│   ├── recommend-guest-modal.tsx  # Guest recommendation modal
+│   ├── water-animation.tsx        # Animated wave background
+│   └── ui/                        # Shared UI components
+└── db/
+    ├── index.ts          # Drizzle client
+    └── schema.ts         # Table definitions
+```
 
-## Deploy on Vercel
+## Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Two tables managed by Drizzle:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **waitlist** — email signups (deduplicated)
+- **speaker_recommendations** — guest suggestions with name, reason, and submitter email

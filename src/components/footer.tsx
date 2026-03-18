@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-6xl px-8 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Brand */}
           <div>
             <h3 className="text-sm font-bold tracking-widest uppercase text-gray-900">
@@ -27,15 +27,27 @@ export function Footer() {
                   Founders &amp; Funders
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.oxtechweek.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 hover:text-gray-900"
+                >
+                  OxTechWeek
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.oxmap.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 hover:text-gray-900"
+                >
+                  OxMap
+                </a>
+              </li>
             </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="text-sm font-semibold text-gray-900">Connect</h4>
-            <p className="mt-4 text-sm text-gray-500">
-              Stay tuned for Season 1
-            </p>
           </div>
         </div>
 

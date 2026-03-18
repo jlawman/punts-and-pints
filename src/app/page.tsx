@@ -34,16 +34,16 @@ export default function Home() {
         {/* Text */}
         <div className="relative z-10 w-full md:max-w-md md:flex-shrink-0">
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl">
-            Taking A Punt
+            Taking a Punt
           </h1>
           <p className="mt-3 italic text-sm text-gray-500">
             Verb: To take a chance on something new.
           </p>
-          <p className="mt-3 text-sm font-medium uppercase tracking-widest text-gray-400">
-            Season 1 Coming Soon
+          <p className="mt-3 text-sm font-medium tracking-wide text-gray-400">
+            Launching Soon
           </p>
           <p className="mt-6 text-base leading-relaxed text-gray-500">
-            A different kind of podcast.
+            Stories from people who took a punt.
           </p>
           <div className="mt-8 max-w-sm">
             <WaitlistForm />

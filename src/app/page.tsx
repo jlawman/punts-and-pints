@@ -35,9 +35,16 @@ export default function Home() {
             soon
           </h1>
           <p className="mt-6 text-base leading-relaxed text-gray-500">
-            Punts and pints — the best way to enjoy
-            Cambridge. Guided punting tours paired with
-            the finest local craft beers. Stay tuned.
+            A different kind of podcast. Brought to you by{" "}
+            <a
+              href="https://www.foundersfunders.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-gray-900 hover:underline"
+            >
+              Founders &amp; Funders
+            </a>
+            .
           </p>
           <div className="mt-8 max-w-sm">
             <WaitlistForm />

@@ -8,10 +8,13 @@ export default function Home() {
      <div className="mx-auto max-w-6xl px-8">
       {/* Nav */}
       <nav className="flex items-center justify-between py-6">
-        <span className="text-sm font-bold tracking-widest uppercase text-gray-900">
+        <span className="hidden text-sm font-bold tracking-widest uppercase text-gray-900 sm:inline">
           Punts &amp; Pints
         </span>
-        <div className="flex items-center gap-8">
+        <div className="sm:hidden">
+          <RecommendGuestButton />
+        </div>
+        <div className="hidden items-center gap-8 sm:flex">
           <a href="#" className="text-sm font-medium text-gray-900 underline underline-offset-4">
             Home
           </a>
@@ -25,8 +28,8 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex min-h-[calc(100vh-80px)] items-center">
         {/* Text */}
-        <div className="relative z-10 max-w-md flex-shrink-0">
-          <h1 className="text-5xl font-bold leading-tight tracking-tight text-gray-900">
+        <div className="relative z-10 w-full md:max-w-md md:flex-shrink-0">
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-5xl">
             Punts
             <br />
             &amp; Pints
@@ -49,10 +52,20 @@ export default function Home() {
           <div className="mt-8 max-w-sm">
             <WaitlistForm />
           </div>
+          {/* Mobile illustration */}
+          <div className="mt-8 md:hidden">
+            <Image
+              src="/punt1.jpg"
+              alt="Illustration of people punting on the river"
+              width={1400}
+              height={800}
+              className="h-auto w-full object-contain"
+            />
+          </div>
         </div>
 
-        {/* Illustration */}
-        <div className="absolute inset-y-0 right-0 flex w-[65%] items-center">
+        {/* Desktop illustration */}
+        <div className="absolute inset-y-0 right-0 hidden w-[65%] items-center md:flex">
           <Image
             src="/punt1.jpg"
             alt="Illustration of people punting on the river"

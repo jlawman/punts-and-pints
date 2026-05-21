@@ -35,12 +35,6 @@ export default function Home() {
             Home
           </a>
           <RecommendGuestButton />
-          <span className="text-sm text-gray-500">
-            Brought to you by{" "}
-            <a href="https://www.foundersfunders.tech/" target="_blank" rel="noopener noreferrer" className="font-medium text-gray-500 hover:text-gray-900">
-              Founders &amp; Funders
-            </a>
-          </span>
           <div className="flex items-center gap-3">
             <a href="https://www.linkedin.com/company/taking-a-punt" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">

@@ -62,7 +62,11 @@ export function Footer() {
 
         <div className="mt-8 border-t border-gray-200 pt-8">
           <p className="text-center text-xs text-gray-400">
-            © {new Date().getFullYear()} Taking A Punt. All rights reserved.
+            Brought to you by{" "}
+            <a href="https://www.foundersfunders.tech/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600">
+              Founders &amp; Funders
+            </a>
+            {" "}· © {new Date().getFullYear()} Taking A Punt. All rights reserved.
           </p>
         </div>
       </div>

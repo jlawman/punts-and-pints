@@ -14,6 +14,12 @@ export function Footer() {
             <p className="mt-1 text-sm text-gray-500">
               Sometimes on a punt.
             </p>
+            <a
+              href="mailto:info@takingapunt.com"
+              className="mt-4 inline-block text-sm text-gray-500 hover:text-gray-900"
+            >
+              info@takingapunt.com
+            </a>
           </div>
 
           {/* Links */}

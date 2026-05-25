@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
+import { boolean, pgTable, serial, text, timestamp, uniqueIndex } from "drizzle-orm/pg-core";
 
 export const waitlist = pgTable(
   "waitlist",
@@ -15,5 +15,7 @@ export const speakerRecommendations = pgTable("speaker_recommendations", {
   speakerName: text("speaker_name").notNull(),
   reason: text("reason").notNull(),
   submitterEmail: text("submitter_email").notNull(),
+  canIntroduce: boolean("can_introduce").notNull().default(false),
+  introDetails: text("intro_details"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });

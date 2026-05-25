@@ -10,6 +10,7 @@ const initial = {
 
 export function RecommendGuestButton() {
   const [open, setOpen] = useState(false);
+  const [canIntroduce, setCanIntroduce] = useState(false);
   const [state, formAction, pending] = useActionState(
     async (_prev: typeof initial, formData: FormData) => {
       const result = await recommendGuest(formData);
@@ -18,6 +19,11 @@ export function RecommendGuestButton() {
     },
     initial,
   );
+
+  const closeModal = () => {
+    setOpen(false);
+    setCanIntroduce(false);
+  };
 
   return (
     <>
@@ -33,13 +39,13 @@ export function RecommendGuestButton() {
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/25"
-            onClick={() => setOpen(false)}
+            onClick={closeModal}
           />
 
           {/* Panel */}
           <div className="relative w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
             <button
-              onClick={() => setOpen(false)}
+              onClick={closeModal}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
               aria-label="Close"
             >
@@ -61,7 +67,7 @@ export function RecommendGuestButton() {
                   Thanks for the recommendation! We&apos;ll look into it.
                 </p>
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={closeModal}
                   className="mt-4 h-10 w-full rounded-full border border-gray-900 bg-gray-900 text-sm font-medium text-white transition-colors hover:bg-white hover:text-gray-900"
                 >
                   Close
@@ -110,6 +116,35 @@ export function RecommendGuestButton() {
                     className="mt-1 h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-900 focus:outline-none transition-colors"
                   />
                 </div>
+
+                <div className="flex items-start gap-2">
+                  <input
+                    id="canIntroduce"
+                    type="checkbox"
+                    name="canIntroduce"
+                    checked={canIntroduce}
+                    onChange={(e) => setCanIntroduce(e.target.checked)}
+                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-gray-900 accent-gray-900 focus:outline-none"
+                  />
+                  <label htmlFor="canIntroduce" className="text-sm text-gray-700">
+                    Can you introduce us to them?
+                  </label>
+                </div>
+
+                {canIntroduce && (
+                  <div>
+                    <label htmlFor="introDetails" className="block text-sm font-medium text-gray-700">
+                      How can we reach them? <span className="font-normal text-gray-400">(optional)</span>
+                    </label>
+                    <textarea
+                      id="introDetails"
+                      name="introDetails"
+                      rows={2}
+                      placeholder="Their email, LinkedIn, or &ldquo;happy to email-intro you&rdquo;"
+                      className="mt-1 w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:border-gray-900 focus:outline-none transition-colors"
+                    />
+                  </div>
+                )}
 
                 {state.error && (
                   <p className="text-sm text-red-600">{state.error}</p>

@@ -43,11 +43,20 @@ export async function recommendGuest(formData: FormData) {
     return { error: "Please enter a valid email." };
   }
 
+  const canIntroduce = formData.get("canIntroduce") === "on";
+  const rawIntroDetails = formData.get("introDetails");
+  const introDetails =
+    canIntroduce && typeof rawIntroDetails === "string" && rawIntroDetails.trim()
+      ? rawIntroDetails.trim()
+      : null;
+
   try {
     await db.insert(speakerRecommendations).values({
       speakerName: speakerName.trim(),
       reason: reason.trim(),
       submitterEmail: trimmedEmail,
+      canIntroduce,
+      introDetails,
     });
     return { success: true };
   } catch {
